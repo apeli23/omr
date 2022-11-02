@@ -31,9 +31,9 @@ export const workTiles: WorkTile[] = [
     description: 'Digital Content Creation',
     title: '2010- date',
     image: {
-      src: '/static/images/planner-app.webp',
-      width: 800,
-      height: 1000,
+      src: '/static/images/dance.jpg',
+      width: 1200,
+      height: 1300,
     },
   },
   {
