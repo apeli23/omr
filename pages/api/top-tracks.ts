@@ -13,14 +13,14 @@ type Track = { artists: Artist[]; external_urls: { spotify: string }; name: stri
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const response = await getTopTracks()
   const { items } = await response.json()
+  console.log(items)
+  // const tracks = items.slice(0, 5).map((track: Track) => ({
+  //   artist: track.artists.map((_artist) => _artist.name).join(', '),
+  //   songUrl: track.external_urls.spotify,
+  //   title: track.name,
+  // }))
 
-  const tracks = items.slice(0, 5).map((track: Track) => ({
-    artist: track.artists.map((_artist) => _artist.name).join(', '),
-    songUrl: track.external_urls.spotify,
-    title: track.name,
-  }))
+  // res.setHeader('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate=43200')
 
-  res.setHeader('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate=43200')
-
-  return res.status(200).json({ tracks })
+  return res.status(200).json('tracks')
 }
